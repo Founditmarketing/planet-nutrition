@@ -1,0 +1,137 @@
+export interface MenuItem {
+  id: string;
+  name: string;
+  description?: string;
+  price?: string | number;
+  tags?: string[];
+  category: string;
+}
+
+export const menuCategories = [
+  "Trü Meal Replacement",
+  "Planet Skinny",
+  "Planet Teas",
+  "Fruities & Veggies",
+  "\"Fun Menu\" Flavors",
+  "Enhancers"
+];
+
+export const menuItems: MenuItem[] = [
+  // Trü Meal Replacement
+  { id: 'tmr-1', name: 'Angel Food Cake', category: 'Trü Meal Replacement' },
+  { id: 'tmr-2', name: 'Apple Cobbler', category: 'Trü Meal Replacement' },
+  { id: 'tmr-3', name: 'Banana Cream Pie', description: 'Graham Cracker', category: 'Trü Meal Replacement' },
+  { id: 'tmr-4', name: 'Banana Scream', description: 'Banana', category: 'Trü Meal Replacement' },
+  { id: 'tmr-5', name: 'Banana Split', description: 'Chocolate/Cherries/Banana', category: 'Trü Meal Replacement' },
+  { id: 'tmr-6', name: 'Berry Blast', description: 'Strawberry/Blueberry/Raspberry', category: 'Trü Meal Replacement' },
+  { id: 'tmr-7', name: 'Blueberry Muffin', category: 'Trü Meal Replacement' },
+  { id: 'tmr-8', name: 'Blueberry Cheesecake', category: 'Trü Meal Replacement' },
+  { id: 'tmr-9', name: 'Butterscotch', category: 'Trü Meal Replacement' },
+  { id: 'tmr-10', name: 'Cappuccino Chill', category: 'Trü Meal Replacement' },
+  { id: 'tmr-11', name: 'Cheesecake', category: 'Trü Meal Replacement' },
+  { id: 'tmr-12', name: 'Cherry', category: 'Trü Meal Replacement' },
+  { id: 'tmr-13', name: 'Cherry Cheesecake', category: 'Trü Meal Replacement' },
+  { id: 'tmr-14', name: 'Chocolate', description: 'Sugar Free Available', category: 'Trü Meal Replacement' },
+  { id: 'tmr-15', name: 'Chocolate Banana', category: 'Trü Meal Replacement' },
+  { id: 'tmr-16', name: 'Chocolate Cheesecake', category: 'Trü Meal Replacement' },
+  { id: 'tmr-17', name: 'Chocolate Cherry', category: 'Trü Meal Replacement' },
+  { id: 'tmr-18', name: 'Chocolate Cherry Cheesecake', category: 'Trü Meal Replacement' },
+  { id: 'tmr-19', name: 'Chocolate Xplosion', category: 'Trü Meal Replacement' },
+  { id: 'tmr-20', name: 'Chocolate Peanut Butter', category: 'Trü Meal Replacement' },
+  { id: 'tmr-21', name: 'Chocolate Strawberry', category: 'Trü Meal Replacement' },
+  { id: 'tmr-22', name: 'Chocolate Raspberry', category: 'Trü Meal Replacement' },
+  { id: 'tmr-23', name: 'Choc/Strawberry Cheesecake', category: 'Trü Meal Replacement' },
+  { id: 'tmr-24', name: 'Coconut', category: 'Trü Meal Replacement' },
+  { id: 'tmr-25', name: 'Cookies & Cream', category: 'Trü Meal Replacement' },
+  { id: 'tmr-26', name: 'Grape Explosion', category: 'Trü Meal Replacement' },
+  { id: 'tmr-27', name: 'Hawaiian Treat', description: 'Pineapple/Banana/Coconut', category: 'Trü Meal Replacement' },
+  { id: 'tmr-28', name: 'Lemon Cheesecake', category: 'Trü Meal Replacement' },
+  { id: 'tmr-29', name: 'Orange Creamsicle', category: 'Trü Meal Replacement' },
+  { id: 'tmr-30', name: 'Peanut Blast', description: 'Peanut Butter/Banana', category: 'Trü Meal Replacement' },
+  { id: 'tmr-31', name: 'Peanut Butter & Jelly', description: 'Peanut Butter/Strawberry', category: 'Trü Meal Replacement' },
+  { id: 'tmr-32', name: 'Pina Colada', description: 'Coconut/Pineapple', category: 'Trü Meal Replacement' },
+  { id: 'tmr-33', name: 'Pineapple Island', description: 'Pine/Banana', category: 'Trü Meal Replacement' },
+  { id: 'tmr-34', name: 'Planet Fruit Bliss', description: 'Straw/Pine', category: 'Trü Meal Replacement' },
+  { id: 'tmr-35', name: 'Pure Power', description: 'Straw/Banana', category: 'Trü Meal Replacement' },
+  { id: 'tmr-36', name: 'Raspberry Cream', category: 'Trü Meal Replacement' },
+  { id: 'tmr-37', name: 'Strawberry Delight', category: 'Trü Meal Replacement' },
+  { id: 'tmr-38', name: 'Strawberry Cheesecake', category: 'Trü Meal Replacement' },
+  { id: 'tmr-39', name: 'Strawberry Lemonade', category: 'Trü Meal Replacement' },
+  { id: 'tmr-40', name: 'Tropical Blast', description: 'Straw/Ban/Coconut/Pineapple', category: 'Trü Meal Replacement' },
+  { id: 'tmr-41', name: 'Wedding Cake', category: 'Trü Meal Replacement' },
+  { id: 'tmr-42', name: 'Wild Tribe Mocha', description: 'Bold Coffee Taste', category: 'Trü Meal Replacement' },
+
+  // Planet Skinny
+  { id: 'skinny-1', name: 'Triple Chocolate Mousse', category: 'Planet Skinny' },
+  { id: 'skinny-2', name: 'Chocolate Peanut Butter Dream', category: 'Planet Skinny' },
+  { id: 'skinny-3', name: 'Very Vanilla Frosting', category: 'Planet Skinny' },
+  { id: 'skinny-4', name: 'Salted Caramel Coffee Crisp', category: 'Planet Skinny' },
+  { id: 'skinny-5', name: 'Cinnamon Swirl', category: 'Planet Skinny' },
+  { id: 'skinny-6', name: 'Cookies & Cream Heavenly', category: 'Planet Skinny' },
+  { id: 'skinny-7', name: 'Birthday Cake', category: 'Planet Skinny' },
+
+  // Planet Teas
+  { id: 'tea-1', name: 'Strawberry', category: 'Planet Teas' },
+  { id: 'tea-2', name: 'Strawberry Watermelon', category: 'Planet Teas' },
+  { id: 'tea-3', name: 'Strawberry Lemonade', category: 'Planet Teas' },
+  { id: 'tea-4', name: 'Strawberry Lime', category: 'Planet Teas' },
+  { id: 'tea-5', name: 'Strawberry Blueberry', category: 'Planet Teas' },
+  { id: 'tea-6', name: 'Strawberry Pineapple', category: 'Planet Teas' },
+  { id: 'tea-7', name: 'Raspberry Lemonade', category: 'Planet Teas' },
+  { id: 'tea-8', name: 'Peach Mango', category: 'Planet Teas' },
+  { id: 'tea-9', name: 'Blueberry Lemonade', category: 'Planet Teas' },
+  { id: 'tea-10', name: 'Orange Citrus', category: 'Planet Teas' },
+
+  // Fruities & Veggies
+  { id: 'fv-1', name: 'Planet Sunrise', description: 'Pineapple, Mango, Banana, Greens', category: 'Fruities & Veggies' },
+  { id: 'fv-2', name: 'Planet Mango', description: 'Mango, Coconut, Greens', category: 'Fruities & Veggies' },
+  { id: 'fv-3', name: 'Planet Blastoff', description: 'Strawberry, Blueberry, Raspberry, Greens', category: 'Fruities & Veggies' },
+  { id: 'fv-4', name: 'Planet Power Bar', description: 'Strawberry, Raspberry, Banana, Oatmeal, Greens', category: 'Fruities & Veggies' },
+
+  // Enhancers
+  { id: 'enh-1', name: 'Plant Base Protein', category: 'Enhancers', price: 0.99 },
+  { id: 'enh-2', name: 'Whey Protein', category: 'Enhancers', price: 0.99 },
+  { id: 'enh-3', name: 'Weight Gainer', category: 'Enhancers', price: 0.99 },
+  { id: 'enh-4', name: 'Antioxidants', category: 'Enhancers', price: 0.99 },
+  { id: 'enh-5', name: 'Echinacea', description: 'Immune Builder', category: 'Enhancers', price: 0.99 },
+  { id: 'enh-6', name: 'Vitamin B12', category: 'Enhancers', price: 0.99 },
+  { id: 'enh-7', name: 'Probiotic', category: 'Enhancers', price: 0.99 },
+  { id: 'enh-8', name: 'Oats', category: 'Enhancers', price: 0.99 },
+  { id: 'enh-9', name: 'Caffeine', description: 'Energy', category: 'Enhancers', price: 0.99 },
+  { id: 'enh-10', name: 'Creatine', category: 'Enhancers', price: 0.99 },
+  { id: 'enh-11', name: 'Glutamine', category: 'Enhancers', price: 0.99 },
+  { id: 'enh-12', name: 'Multivitamin', category: 'Enhancers', price: 0.99 },
+  { id: 'enh-13', name: 'Joint Repair', category: 'Enhancers', price: 0.99 },
+  { id: 'enh-14', name: 'Hoodia', description: 'Appetite Control', category: 'Enhancers', price: 0.99 },
+  { id: 'enh-15', name: 'Ginseng', description: 'Energy', category: 'Enhancers', price: 0.99 },
+  { id: 'enh-16', name: 'Up Speed', description: 'Fat Burner', category: 'Enhancers', price: 0.99 },
+  { id: 'enh-17', name: 'MCT', category: 'Enhancers', price: 0.99 },
+  { id: 'enh-18', name: 'Honey', category: 'Enhancers', price: 0.99 },
+  { id: 'enh-19', name: 'Planet Greens', category: 'Enhancers', price: 0.99 },
+  { id: 'enh-20', name: 'Collagen', category: 'Enhancers', price: 0.99 },
+  { id: 'enh-21', name: 'Fiber', category: 'Enhancers', price: 0.99 },
+  { id: 'enh-22', name: 'Extra Fruit', category: 'Enhancers', price: 0.99 },
+  { id: 'enh-23', name: 'Extra Peanut Butter', category: 'Enhancers', price: 0.99 },
+
+  // "Fun Menu" Flavors
+  { id: 'fun-1', name: 'Almond Joy', description: 'Chocolate, Coconut, Almond', category: '"Fun Menu" Flavors', tags: ['+$1.00 Any Size'] },
+  { id: 'fun-2', name: 'Butter Pecan', description: 'Butterscotch, Peanut Butter, Caramel', category: '"Fun Menu" Flavors', tags: ['+$1.00 Any Size'] },
+  { id: 'fun-3', name: 'Caramel Apple', description: 'Apple Cider, Caramel, Cinnamon', category: '"Fun Menu" Flavors', tags: ['+$1.00 Any Size'] },
+  { id: 'fun-4', name: 'Choc O Stick', description: 'Peanut Butter, Chocolate, Graham', category: '"Fun Menu" Flavors', tags: ['+$1.00 Any Size'] },
+  { id: 'fun-5', name: 'German Chocolate Cake', description: 'Chocolate, Caramel, Coconut', category: '"Fun Menu" Flavors', tags: ['+$1.00 Any Size'] },
+  { id: 'fun-6', name: 'Key Lime Pie', description: 'Lemon, Lime, Graham Cracker', category: '"Fun Menu" Flavors', tags: ['+$1.00 Any Size'] },
+  { id: 'fun-7', name: 'Cinnamon Toast Planet', description: 'Whey, Vanilla, Graham, Cinnamon', category: '"Fun Menu" Flavors', tags: ['+$1.00 Any Size'] },
+  { id: 'fun-8', name: 'Goo Goo', description: 'Chocolate, Caramel, Peanut Butter, Marshmallow', category: '"Fun Menu" Flavors', tags: ['+$1.00 Any Size'] },
+  { id: 'fun-9', name: 'Milky Way', description: 'Chocolate, Caramel', category: '"Fun Menu" Flavors', tags: ['+$1.00 Any Size'] },
+  { id: 'fun-10', name: 'Peppermint', description: 'Peppermint Extract', category: '"Fun Menu" Flavors', tags: ['+$1.00 Any Size'] },
+  { id: 'fun-11', name: 'Pink Power', description: 'Strawberry, Watermelon', category: '"Fun Menu" Flavors', tags: ['+$1.00 Any Size'] },
+  { id: 'fun-12', name: 'Snickers', description: 'Chocolate, Caramel, Peanut Butter', category: '"Fun Menu" Flavors', tags: ['+$1.00 Any Size'] },
+  { id: 'fun-13', name: 'Thin Mint', description: 'Chocolate, Peppermint, Oreo', category: '"Fun Menu" Flavors', tags: ['+$1.00 Any Size'] },
+  { id: 'fun-14', name: 'Reese', description: 'Chocolate, Peanut Butter', category: '"Fun Menu" Flavors', tags: ['+$1.00 Any Size'] },
+  { id: 'fun-15', name: 'Twix', description: 'Chocolate, Caramel, Graham', category: '"Fun Menu" Flavors', tags: ['+$1.00 Any Size'] },
+  { id: 'fun-16', name: 'Nutella', description: 'Chocolate, Hazelnut', category: '"Fun Menu" Flavors', tags: ['+$1.00 Any Size'] },
+  { id: 'fun-17', name: 'Worms In Dirt', description: 'Chocolate, Oreo, Gummy Worms', category: '"Fun Menu" Flavors', tags: ['+$1.00 Any Size'] },
+  { id: 'fun-18', name: 'Samoas', description: 'Chocolate, Coconut, Caramel', category: '"Fun Menu" Flavors', tags: ['+$1.00 Any Size'] },
+  { id: 'fun-19', name: 'Blueberry Cobbler', description: 'Blueberry, Cheesecake, Graham, Maple Brown Sugar Caramel', category: '"Fun Menu" Flavors', tags: ['Specialty', '+$2.00 Any Size'] },
+  { id: 'fun-20', name: 'Terminator', description: 'Chocolate + 3 Oreos, Weight Gainer, 1 Complete Cookie', category: '"Fun Menu" Flavors', tags: ['Specialty', '+$4.00 Any Size'] },
+];

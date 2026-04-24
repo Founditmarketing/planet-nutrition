@@ -1,0 +1,30 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Oswald:wght@300;400;500;600;700&display=swap');
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --color-brand-royal: #3853a4;
+  --color-brand-sky: #72c5de;
+  --color-brand-deep: #3853a4;
+  --color-bg-dark: #0a0a0a;
+  --color-bg-panel: #141414;
+  --color-text-main: #ffffff;
+  --color-border-subtle: rgba(255, 255, 255, 0.15);
+  --font-sans: "Inter", sans-serif;
+  --font-display: "Oswald", sans-serif;
+}
+
+body {
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Custom scrollbar for horizontal scrolling sections */
+.scrollbar-hide::-webkit-scrollbar {
+    display: none;
+}
+.scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
