@@ -73,8 +73,8 @@ export default function Reviews() {
         if (scrollLeft + clientWidth >= scrollWidth - 2000 || scrollLeft <= 2000) {
           scrollRef.current.scrollTo({ left: (scrollWidth - clientWidth) / 2, behavior: 'instant' } as any);
         } else {
-          // Scroll roughly one card width, letting snap-center lock it perfectly
-          const step = window.innerWidth < 768 ? window.innerWidth * 0.85 : 374;
+          // Scroll exactly one card width + gap (24px)
+          const step = window.innerWidth < 768 ? (window.innerWidth * 0.85) + 24 : 374;
           scrollRef.current.scrollBy({ left: step, behavior: 'smooth' });
         }
       }
@@ -84,7 +84,7 @@ export default function Reviews() {
 
   const scroll = (direction: 'left' | 'right') => {
     if (scrollRef.current) {
-      const step = window.innerWidth < 768 ? window.innerWidth * 0.85 : 374;
+      const step = window.innerWidth < 768 ? (window.innerWidth * 0.85) + 24 : 374;
       const scrollAmount = direction === 'left' ? -step : step;
       scrollRef.current.scrollBy({ left: scrollAmount, behavior: 'smooth' });
     }
@@ -139,7 +139,7 @@ export default function Reviews() {
       {/* Full Width Carousel */}
       <div 
         ref={scrollRef}
-        className="w-full flex overflow-x-auto snap-x snap-mandatory scroll-smooth pb-8 pt-4 px-[calc(50vw-42.5vw)] md:px-[calc(50vw-175px)] gap-6 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]"
+        className="w-full flex overflow-x-auto snap-x snap-mandatory scroll-smooth pb-8 pt-4 px-[calc(50vw_-_42.5vw)] md:px-[calc(50vw_-_175px)] gap-6 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]"
       >
         {extendedReviews.map((review, i) => (
           <div 
