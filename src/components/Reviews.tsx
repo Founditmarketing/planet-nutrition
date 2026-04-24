@@ -66,7 +66,8 @@ export default function Reviews() {
   // Auto scroll effect
   useEffect(() => {
     const interval = setInterval(() => {
-      if (scrollRef.current) {
+      // Only auto-scroll on desktop (md breakpoint and up)
+      if (scrollRef.current && window.innerWidth >= 768) {
         const { scrollLeft, scrollWidth, clientWidth } = scrollRef.current;
         
         // If nearing the edges, instantly jump back to center to maintain illusion
