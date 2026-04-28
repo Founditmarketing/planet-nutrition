@@ -10,7 +10,7 @@ const slides = [
     category: 'Protein',
     desc: 'Rapid-absorbing muscle fuel for elite performance. 30 Servings.',
     bgImage: '/wheyherosection.jpeg',
-    bgPosition: '85% 0%',
+    bgPosition: '75% 30%',
     color: 'from-blue-100/50'
   },
   {
@@ -20,7 +20,7 @@ const slides = [
     category: 'Pre-Workout',
     desc: 'Max-dose energy and focus for your toughest training sessions.',
     bgImage: '/purepowerherosection.jpeg',
-    bgPosition: '70% center',
+    bgPosition: '75% 60%',
     color: 'from-red-100/50'
   },
   {
@@ -30,7 +30,7 @@ const slides = [
     category: 'Creatine',
     desc: 'Clinically proven formula to increase strength and power output.',
     bgImage: '/creatineherosection.jpeg',
-    bgPosition: '95% center',
+    bgPosition: '80% 60%',
     color: 'from-gray-200/50'
   }
 ];

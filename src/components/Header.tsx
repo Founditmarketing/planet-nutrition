@@ -14,7 +14,7 @@ const navLinks = [
   { name: 'Home', href: '/' },
   { name: 'Shop', href: '/shop' },
   { name: 'Franchising', href: 'https://planetnutritionfranchise.com/' },
-  { name: 'Menu', href: '/menu' },
+  { name: 'Drink Menu', href: '/menu' },
   { name: 'About', href: '/about' },
   { name: 'News', href: '#' },
   { name: 'Store Locator', href: '/locations' },
@@ -48,20 +48,44 @@ export default function Header() {
   return (
     <>
       <header className="w-full sticky top-0 z-40 flex flex-col">
-        {/* Announcement Bar */}
-        <div className="bg-brand-sky h-8 w-full flex items-center justify-center overflow-hidden border-b border-gray-200 dark:border-black/10">
-          <AnimatePresence mode="wait">
-            <motion.p
-              key={announcementIndex}
-              initial={{ y: 20, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              exit={{ y: -20, opacity: 0 }}
-              transition={{ duration: 0.3 }}
-              className="text-black text-[10px] md:text-xs font-sans font-bold tracking-[0.15em] uppercase"
-            >
-              {announcements[announcementIndex]}
-            </motion.p>
-          </AnimatePresence>
+        {/* Top Info & Announcement Bar */}
+        <div className="relative bg-brand-sky h-8 w-full flex items-center justify-between px-4 sm:px-6 md:px-8 border-b border-gray-200 dark:border-black/10">
+          
+          {/* Left: Contact & Hashtag (Hidden on small screens to save space) */}
+          <div className="flex items-center gap-3 text-[10px] md:text-[11px] font-bold tracking-widest uppercase text-black hidden md:flex z-10">
+            <span>#LoveYourPlanet</span>
+            <span className="opacity-50">|</span>
+            <a href="tel:3374062348" className="hover:text-white transition-colors">(337) 406-2348</a>
+          </div>
+
+          {/* Center: Announcements */}
+          <div className="absolute left-1/2 -translate-x-1/2 flex justify-center overflow-hidden w-full pointer-events-none">
+            <AnimatePresence mode="wait">
+              <motion.p
+                key={announcementIndex}
+                initial={{ y: 20, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                exit={{ y: -20, opacity: 0 }}
+                transition={{ duration: 0.3 }}
+                className="text-black text-[10px] md:text-xs font-sans font-bold tracking-[0.15em] uppercase whitespace-nowrap pointer-events-auto"
+              >
+                {announcements[announcementIndex]}
+              </motion.p>
+            </AnimatePresence>
+          </div>
+
+          {/* Right: Socials (Hidden on small screens to save space) */}
+          <div className="flex items-center gap-4 hidden md:flex z-10">
+            <a href="https://www.instagram.com/planet_nutrition_inc/" target="_blank" rel="noopener noreferrer" className="text-black hover:text-white transition-colors" aria-label="Instagram">
+              <Instagram className="w-3.5 h-3.5" />
+            </a>
+            <a href="https://www.facebook.com/planetnutritioncorp" target="_blank" rel="noopener noreferrer" className="text-black hover:text-white transition-colors" aria-label="Facebook">
+              <Facebook className="w-3.5 h-3.5" />
+            </a>
+            <a href="https://x.com/planetnutrition?lang=en" target="_blank" rel="noopener noreferrer" className="text-black hover:text-white transition-colors" aria-label="Twitter">
+              <Twitter className="w-3.5 h-3.5" />
+            </a>
+          </div>
         </div>
 
         {/* Main Header */}
@@ -208,13 +232,13 @@ export default function Header() {
 
               <div className="p-8 bg-gray-50 border-t border-gray-100">
                 <div className="flex gap-4 mb-6">
-                  <a href="#" className="w-10 h-10 bg-black text-white flex items-center justify-center hover:bg-brand-sky transition-colors">
-                    <Facebook className="w-5 h-5" />
-                  </a>
-                  <a href="#" className="w-10 h-10 bg-black text-white flex items-center justify-center hover:bg-brand-sky transition-colors">
+                  <a href="https://www.instagram.com/planet_nutrition_inc/" target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-black text-white flex items-center justify-center hover:bg-brand-sky transition-colors">
                     <Instagram className="w-5 h-5" />
                   </a>
-                  <a href="#" className="w-10 h-10 bg-black text-white flex items-center justify-center hover:bg-brand-sky transition-colors">
+                  <a href="https://www.facebook.com/planetnutritioncorp" target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-black text-white flex items-center justify-center hover:bg-brand-sky transition-colors">
+                    <Facebook className="w-5 h-5" />
+                  </a>
+                  <a href="https://x.com/planetnutrition?lang=en" target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-black text-white flex items-center justify-center hover:bg-brand-sky transition-colors">
                     <Twitter className="w-5 h-5" />
                   </a>
                 </div>

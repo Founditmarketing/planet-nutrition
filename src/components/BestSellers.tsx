@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { Plus } from 'lucide-react';
+import { Plus, ChevronLeft, ChevronRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useCart } from '../context/CartContext';
 import { products } from '../data/products';
@@ -9,11 +9,31 @@ const tabs = ["All", "Proteins", "Pre-Workouts", "Creatine"];
 
 export default function BestSellers() {
   const [activeTab, setActiveTab] = useState("All");
+  const [scrollProgress, setScrollProgress] = useState(0);
+  const scrollRef = useRef<HTMLDivElement>(null);
   const { addToCart } = useCart();
 
   const filteredProducts = activeTab === "All" 
     ? products 
     : products.filter(p => p.category === activeTab);
+
+  const scroll = (direction: 'left' | 'right') => {
+    if (scrollRef.current) {
+      const { current } = scrollRef;
+      const scrollAmount = direction === 'left' ? -current.offsetWidth + 100 : current.offsetWidth - 100;
+      current.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+    }
+  };
+
+  const handleScroll = (e: React.UIEvent<HTMLDivElement>) => {
+    const { scrollLeft, scrollWidth, clientWidth } = e.currentTarget;
+    const maxScroll = scrollWidth - clientWidth;
+    if (maxScroll > 0) {
+      setScrollProgress((scrollLeft / maxScroll) * 100);
+    } else {
+      setScrollProgress(0);
+    }
+  };
 
   return (
     <section className="bg-white dark:bg-black text-black dark:text-white py-24 px-6 md:px-12 border-b border-gray-200 dark:border-white/10 transition-colors duration-300 relative overflow-hidden">
@@ -47,103 +67,119 @@ export default function BestSellers() {
             </h2>
           </div>
 
-          <div className="flex flex-wrap gap-4 md:gap-8 border-b border-gray-200 dark:border-white/10 pb-4">
-            {tabs.map((tab) => (
-              <button
-                key={tab}
-                onClick={() => setActiveTab(tab)}
-                className={`font-sans text-[10px] uppercase tracking-[0.1em] font-bold transition-colors duration-300 relative ${
-                  activeTab === tab ? 'text-brand-sky' : 'text-gray-500 hover:text-black dark:text-gray-400 dark:hover:text-white'
-                }`}
-              >
-                {tab}
-                {activeTab === tab && (
-                  <motion.div 
-                    layoutId="activeTab"
-                    className="absolute -bottom-[17px] left-0 right-0 h-[2px] bg-brand-sky"
-                  />
-                )}
+          <div className="flex flex-col md:flex-row items-start md:items-end gap-6 border-b border-gray-200 dark:border-white/10 pb-4">
+            <div className="flex flex-wrap gap-4 md:gap-8">
+              {tabs.map((tab) => (
+                <button
+                  key={tab}
+                  onClick={() => setActiveTab(tab)}
+                  className={`font-sans text-[10px] uppercase tracking-[0.1em] font-bold transition-colors duration-300 relative ${
+                    activeTab === tab ? 'text-brand-sky' : 'text-gray-500 hover:text-black dark:text-gray-400 dark:hover:text-white'
+                  }`}
+                >
+                  {tab}
+                  {activeTab === tab && (
+                    <motion.div 
+                      layoutId="activeTab"
+                      className="absolute -bottom-[17px] left-0 right-0 h-[2px] bg-brand-sky"
+                    />
+                  )}
+                </button>
+              ))}
+            </div>
+
+            {/* Nav Buttons */}
+            <div className="hidden md:flex items-center gap-2 ml-auto">
+              <button onClick={() => scroll('left')} className="w-8 h-8 rounded-full bg-gray-100 dark:bg-white/10 flex items-center justify-center hover:bg-gray-200 dark:hover:bg-white/20 transition-colors">
+                <ChevronLeft className="w-5 h-5 text-black dark:text-white" />
               </button>
-            ))}
+              <button onClick={() => scroll('right')} className="w-8 h-8 rounded-full bg-gray-100 dark:bg-white/10 flex items-center justify-center hover:bg-gray-200 dark:hover:bg-white/20 transition-colors">
+                <ChevronRight className="w-5 h-5 text-black dark:text-white" />
+              </button>
+            </div>
           </div>
         </div>
 
-        {/* Product Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 mt-8">
-          <AnimatePresence mode="popLayout">
-            {filteredProducts.map((product) => (
-              <motion.div
-                key={product.id}
-                layout
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, scale: 0.95 }}
-                transition={{ duration: 0.4 }}
-                className="bg-white dark:bg-[#0f0f0f] relative group flex flex-col h-[520px] border border-gray-200 dark:border-white/10 rounded-none overflow-hidden shadow-sm hover:shadow-2xl hover:shadow-brand-sky/5 transition-all duration-300 hover:-translate-y-1"
-              >
-                {/* Image Container */}
-                <Link to={`/product/${product.id}`} className="block h-[260px] bg-white relative overflow-hidden flex items-center justify-center p-4 transition-colors duration-300 cursor-pointer">
-                  <img 
-                    src={product.image} 
-                    alt={product.name}
-                    className="w-full h-full object-contain group-hover:scale-110 transition-transform duration-700 ease-out"
-                  />
-                  
-                  {/* Quick Add Overlay */}
-                  <div className="absolute inset-x-0 bottom-0 p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out z-10 hidden md:block">
-                    <button 
-                      onClick={(e) => {
-                        e.preventDefault();
-                        e.stopPropagation();
-                        addToCart(product);
-                      }}
-                      className="w-full bg-brand-deep text-white rounded-none font-sans text-[10px] font-bold uppercase tracking-[0.2em] py-3 flex items-center justify-center gap-2 hover:bg-blue-700 transition-colors"
-                    >
-                      Quick Add
-                      <Plus className="w-4 h-4" />
-                    </button>
-                  </div>
-                </Link>
-
-                {/* Info Container */}
-                <div className="p-6 flex flex-col flex-grow justify-between bg-white dark:bg-[#0f0f0f] transition-colors duration-300 z-20 border-t border-gray-100 dark:border-white/5 text-center">
-                  <div className="flex flex-col items-center">
-                    <div className="flex items-center space-x-1 mb-3">
-                      <div className="flex text-yellow-500 text-[10px]">
-                        {'★'.repeat(Math.floor(Number(product.rating)))}
-                      </div>
-                      <span className="text-[10px] text-gray-500 dark:text-gray-400 font-medium">({product.reviews})</span>
+        {/* Product Carousel (Full Width) */}
+        <div className="w-screen relative left-1/2 -translate-x-1/2 mt-8">
+          <div 
+            ref={scrollRef}
+            onScroll={handleScroll}
+            className="flex overflow-x-auto snap-x snap-mandatory gap-4 md:gap-6 pb-8 px-6 md:px-12 hide-scrollbar scroll-smooth"
+            style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+          >
+            <AnimatePresence mode="popLayout">
+              {filteredProducts.map((product) => (
+                <motion.div
+                  key={product.id}
+                  layout
+                  initial={{ opacity: 0, scale: 0.95 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.95 }}
+                  transition={{ duration: 0.4 }}
+                  className="min-w-[220px] w-[220px] md:min-w-[260px] md:w-[260px] flex-shrink-0 snap-start group relative flex flex-col"
+                >
+                  {/* Image Container */}
+                  <Link to={`/product/${product.id}`} className="block h-[260px] bg-[#f5f5f5] dark:bg-zinc-900 relative overflow-hidden flex items-center justify-center transition-colors duration-300">
+                    <img 
+                      src={product.image} 
+                      alt={product.name}
+                      className="w-full h-full object-contain mix-blend-multiply dark:mix-blend-normal group-hover:scale-105 transition-transform duration-500 ease-out"
+                    />
+                    
+                    {/* Quick Add Button Overlay */}
+                    <div className="absolute inset-x-0 bottom-0 p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out z-10 hidden md:block">
+                      <button 
+                        onClick={(e) => {
+                          e.preventDefault();
+                          e.stopPropagation();
+                          addToCart(product);
+                        }}
+                        className="w-full bg-black dark:bg-white text-white dark:text-black rounded-none font-sans text-[10px] uppercase font-bold py-3 flex items-center justify-center gap-2 hover:bg-brand-sky hover:text-white transition-colors"
+                      >
+                        Quick Add
+                      </button>
                     </div>
+                  </Link>
+
+                  {/* Info Container */}
+                  <div className="pt-4 flex flex-col text-left">
+                    {/* Stars & Price Row */}
+                    <div className="flex items-center justify-between mb-2">
+                      <div className="flex items-center space-x-1">
+                        <div className="flex text-orange-500 text-xs">
+                          {'★'.repeat(Math.floor(Number(product.rating)))}
+                          {Number(product.rating) % 1 !== 0 && '½'}
+                        </div>
+                        <span className="text-[10px] text-gray-500 font-medium">{product.rating} ({product.reviews})</span>
+                      </div>
+                      <span className="font-bold text-base text-black dark:text-white">${product.price}</span>
+                    </div>
+                    
+                    {/* Product Name */}
                     <Link to={`/product/${product.id}`}>
-                      <h3 className="font-sans font-black italic text-xl tracking-tighter uppercase mb-1 hover:text-brand-sky transition-colors text-black dark:text-white">
+                      <h3 className="font-sans font-bold text-sm md:text-base text-black dark:text-white group-hover:text-brand-sky transition-colors mb-1 truncate">
                         {product.name}
                       </h3>
                     </Link>
-                    <p className="text-gray-500 dark:text-gray-400 font-sans text-[10px] font-bold tracking-widest uppercase mb-2">
-                      {product.desc}
-                    </p>
-                    <p className="text-gray-400 dark:text-gray-500 text-[10px] uppercase tracking-wide">
+                    
+                    {/* Details */}
+                    <p className="text-gray-500 dark:text-gray-400 text-xs mt-1">
                       {product.details}
                     </p>
                   </div>
-                  
-                  <div className="flex flex-col items-center mt-4">
-                    <span className="font-mono text-xl font-bold text-black dark:text-white mb-3">${product.price}</span>
-                    <button 
-                      onClick={(e) => {
-                        e.preventDefault();
-                        e.stopPropagation();
-                        addToCart(product);
-                      }}
-                      className="md:hidden w-10 h-10 flex items-center justify-center bg-gray-100 dark:bg-white/10 text-black dark:text-white rounded-none"
-                    >
-                      <Plus className="w-4 h-4" />
-                    </button>
-                  </div>
-                </div>
-              </motion.div>
-            ))}
-          </AnimatePresence>
+                </motion.div>
+              ))}
+            </AnimatePresence>
+          </div>
+
+          {/* Scroll Progress Bar */}
+          <div className="w-full max-w-4xl mx-auto h-[2px] bg-gray-200 dark:bg-white/10 mt-4 relative rounded-full overflow-hidden">
+            <div 
+              className="absolute top-0 left-0 h-full bg-black dark:bg-brand-sky transition-all duration-150 ease-out"
+              style={{ width: `${Math.max(scrollProgress, 15)}%` }}
+            />
+          </div>
         </div>
       </div>
     </section>
