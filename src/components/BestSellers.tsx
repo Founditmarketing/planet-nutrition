@@ -20,7 +20,9 @@ export default function BestSellers() {
   const scroll = (direction: 'left' | 'right') => {
     if (scrollRef.current) {
       const { current } = scrollRef;
-      const scrollAmount = direction === 'left' ? -current.offsetWidth + 100 : current.offsetWidth - 100;
+      // Scroll by exactly two items on desktop (260px + 24px gap = 284px * 2 = 568px)
+      // This prevents smooth scroll from conflicting with CSS scroll-snap
+      const scrollAmount = direction === 'left' ? -568 : 568;
       current.scrollBy({ left: scrollAmount, behavior: 'smooth' });
     }
   };
@@ -101,23 +103,27 @@ export default function BestSellers() {
         </div>
 
         {/* Product Carousel (Full Width) */}
-        <div className="w-screen relative left-1/2 -translate-x-1/2 mt-8">
-          <div 
-            ref={scrollRef}
-            onScroll={handleScroll}
-            className="flex overflow-x-auto snap-x snap-mandatory gap-4 md:gap-6 pb-8 px-[calc(50vw-110px)] md:px-12 xl:px-[calc((100vw-1280px)/2)] hide-scrollbar scroll-smooth"
-            style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
-          >
-            <AnimatePresence mode="wait">
-              {filteredProducts.map((product) => (
-                <motion.div
-                  key={product.id}
-                  initial={{ opacity: 0, x: 20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  exit={{ opacity: 0, x: -20 }}
-                  transition={{ duration: 0.3 }}
-                  className="min-w-[220px] w-[220px] md:min-w-[260px] md:w-[260px] flex-shrink-0 snap-center md:snap-start group relative flex flex-col"
-                >
+        <div className="w-screen relative left-1/2 -translate-x-1/2 mt-8 min-h-[400px]">
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={activeTab}
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -10 }}
+              transition={{ duration: 0.2 }}
+              className="w-full"
+            >
+              <div 
+                ref={scrollRef}
+                onScroll={handleScroll}
+                className="flex overflow-x-auto snap-x snap-mandatory gap-4 md:gap-6 pb-8 px-[calc(50vw-110px)] md:px-12 xl:px-[calc((100vw-1280px)/2)] hide-scrollbar scroll-smooth"
+                style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+              >
+                {filteredProducts.map((product) => (
+                  <div
+                    key={product.id}
+                    className="min-w-[220px] w-[220px] md:min-w-[260px] md:w-[260px] flex-shrink-0 snap-center md:snap-start group relative flex flex-col"
+                  >
                   {/* Image Container */}
                   <Link to={`/product/${product.id}`} className="block h-[260px] bg-[#f5f5f5] dark:bg-zinc-900 relative overflow-hidden flex items-center justify-center transition-colors duration-300">
                     <img 
@@ -167,10 +173,11 @@ export default function BestSellers() {
                       {product.details}
                     </p>
                   </div>
-                </motion.div>
-              ))}
-            </AnimatePresence>
-          </div>
+                  </div>
+                ))}
+              </div>
+            </motion.div>
+          </AnimatePresence>
 
           {/* Scroll Progress Bar */}
           <div className="w-full max-w-4xl mx-auto h-[2px] bg-gray-200 dark:bg-white/10 mt-4 relative rounded-full overflow-hidden">
