@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { menuItems, menuCategories } from '../data/menu';
-import { Leaf, Info, Search, CupSoda, Zap } from 'lucide-react';
+import { Leaf, Info, Search, CupSoda } from 'lucide-react';
 
 export default function MenuSection() {
   const [activeCategory, setActiveCategory] = useState(menuCategories[0]);
@@ -41,7 +41,7 @@ export default function MenuSection() {
             Discover Your Flavor
           </h2>
           <h3 className="text-black dark:text-white font-display text-4xl md:text-5xl lg:text-6xl uppercase italic font-black tracking-tighter mb-6">
-            The Menu
+            The Drink Menu
           </h3>
           <p className="text-gray-600 dark:text-gray-400 font-sans text-sm md:text-base leading-relaxed">
             From high-quality protein meal replacements to our energy-boosting teas and fun menu creations, 
@@ -146,11 +146,7 @@ export default function MenuSection() {
                 <div>
                   <div className="flex justify-between items-end mb-1">
                     <h4 className="text-black dark:text-white font-display text-lg md:text-xl uppercase italic font-black group-hover:text-brand-sky transition-colors flex items-center gap-2">
-                      {item.category === 'Enhancers' ? (
-                        <Zap className="w-5 h-5 text-gray-300 dark:text-gray-700 opacity-60" strokeWidth={1.5} />
-                      ) : (
-                        <CupSoda className="w-5 h-5 text-gray-300 dark:text-gray-700 opacity-60" strokeWidth={1.5} />
-                      )}
+                      <CupSoda className="w-5 h-5 text-gray-300 dark:text-gray-700" strokeWidth={1.5} />
                       {item.name}
                     </h4>
                     {item.price && (
