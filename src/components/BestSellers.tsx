@@ -125,11 +125,11 @@ export default function BestSellers() {
                     className="min-w-[220px] w-[220px] md:min-w-[260px] md:w-[260px] flex-shrink-0 snap-center md:snap-start group relative flex flex-col"
                   >
                   {/* Image Container */}
-                  <Link to={`/product/${product.id}`} className="block h-[260px] bg-[#f5f5f5] dark:bg-zinc-900 relative overflow-hidden flex items-center justify-center transition-colors duration-300">
+                  <Link to={`/product/${product.id}`} className="block aspect-square bg-[#f5f5f5] dark:bg-zinc-900 relative overflow-hidden flex items-center justify-center transition-colors duration-300">
                     <img 
                       src={product.image} 
                       alt={product.name}
-                      className="w-full h-full object-contain mix-blend-multiply dark:mix-blend-normal group-hover:scale-105 transition-transform duration-500 ease-out"
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
                     />
                     
                     {/* Quick Add Button Overlay */}
@@ -153,10 +153,8 @@ export default function BestSellers() {
                     <div className="flex items-center justify-between mb-2">
                       <div className="flex items-center space-x-1">
                         <div className="flex text-orange-500 text-xs">
-                          {'★'.repeat(Math.floor(Number(product.rating)))}
-                          {Number(product.rating) % 1 !== 0 && '½'}
+                          ★★★★★
                         </div>
-                        <span className="text-[10px] text-gray-500 font-medium">{product.rating} ({product.reviews})</span>
                       </div>
                       <span className="font-bold text-base text-black dark:text-white">${product.price}</span>
                     </div>

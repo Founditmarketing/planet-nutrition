@@ -16,7 +16,7 @@ const navLinks = [
   { name: 'Home', href: '/' },
   { name: 'Shop', href: '/shop' },
   { name: 'Franchising', href: 'https://planetnutritionfranchise.com/' },
-  { name: 'Drink Menu', href: '/menu' },
+  { name: 'Menu', href: '/menu' },
   { name: 'About', href: '/about' },
   { name: 'News', href: '#' },
   { name: 'Store Locator', href: '/locations' },

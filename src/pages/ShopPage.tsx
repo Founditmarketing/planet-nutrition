@@ -119,7 +119,7 @@ export default function ShopPage() {
                     <img 
                       src={product.image} 
                       alt={product.name}
-                      className="w-full h-full object-cover mix-blend-multiply dark:mix-blend-normal group-hover:scale-105 transition-transform duration-500 ease-out"
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
                     />
                     
                     {/* Quick Add Button Overlay */}
@@ -143,10 +143,8 @@ export default function ShopPage() {
                     <div className="flex items-center justify-between mb-2">
                       <div className="flex items-center space-x-1">
                         <div className="flex text-orange-500 text-xs">
-                          {'★'.repeat(Math.floor(Number(product.rating)))}
-                          {Number(product.rating) % 1 !== 0 && '½'}
+                          ★★★★★
                         </div>
-                        <span className="text-[9px] md:text-[10px] text-gray-500 font-medium">{product.rating} ({product.reviews})</span>
                       </div>
                       <span className="font-bold text-sm md:text-base text-black dark:text-white">${product.price}</span>
                     </div>

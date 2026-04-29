@@ -32,7 +32,7 @@ export const products: Product[] = [
     price: 29.99,
     rating: "4.7",
     reviews: 85,
-    details: "60 Capsules",
+    details: "",
     image: "/supplements/Digestive-Align.png",
   },
   {
@@ -43,7 +43,7 @@ export const products: Product[] = [
     price: 39.99,
     rating: "4.9",
     reviews: 210,
-    details: "40 Servings",
+    details: "30 Servings",
     image: "/products/Pure Power Limitless - pre-workout.png",
   },
   {
@@ -54,7 +54,7 @@ export const products: Product[] = [
     price: 49.99,
     rating: "4.6",
     reviews: 145,
-    details: "60 Capsules",
+    details: "64 Capsules",
     image: "/supplements/Up-Speed-2024.png",
   },
   {
@@ -65,7 +65,7 @@ export const products: Product[] = [
     price: 49.99,
     rating: "4.8",
     reviews: 175,
-    details: "60 Capsules",
+    details: "60 Count",
     image: "/supplements/up-speed-black.png",
   },
   {
@@ -76,7 +76,7 @@ export const products: Product[] = [
     price: 59.99,
     rating: "4.9",
     reviews: 200,
-    details: "60 Capsules",
+    details: "32 Count",
     image: "/supplements/n-motion-thyro-inferno-square.png",
   },
   {
@@ -87,7 +87,7 @@ export const products: Product[] = [
     price: 49.99,
     rating: "4.7",
     reviews: 110,
-    details: "30 Servings",
+    details: "50 Servings",
     image: "/supplements/IFLUEL.png",
   },
   {
@@ -120,7 +120,7 @@ export const products: Product[] = [
     price: 49.99,
     rating: "4.9",
     reviews: 245,
-    details: "30 Servings",
+    details: "70 Servings",
     image: "/supplements/WHEY-MATRIX.webp",
   },
   {
@@ -131,7 +131,7 @@ export const products: Product[] = [
     price: 29.99,
     rating: "4.7",
     reviews: 130,
-    details: "30 Servings",
+    details: "40 Servings",
     image: "/supplements/AMINO-GEAUX.webp",
   },
   {
@@ -142,7 +142,7 @@ export const products: Product[] = [
     price: 39.99,
     rating: "4.8",
     reviews: 165,
-    details: "30 Servings",
+    details: "50 Servings",
     image: "/supplements/AMPLIFY-BCAA.webp",
   },
   {
@@ -164,7 +164,7 @@ export const products: Product[] = [
     price: 29.99,
     rating: "4.8",
     reviews: 115,
-    details: "120 Capsules",
+    details: "90 Capsules",
     image: "/supplements/Osteo-Quad-Flex-RS.jpg",
   },
   {
@@ -197,7 +197,7 @@ export const products: Product[] = [
     price: 59.99,
     rating: "4.9",
     reviews: 180,
-    details: "30 Servings",
+    details: "100 Capsules",
     image: "/supplements/vcore.jpg",
   },
   {
@@ -208,7 +208,7 @@ export const products: Product[] = [
     price: 19.99,
     rating: "4.8",
     reviews: 210,
-    details: "60 Tablets",
+    details: "90 Count",
     image: "/supplements/menus-multi.png",
   },
   {
@@ -219,7 +219,7 @@ export const products: Product[] = [
     price: 24.99,
     rating: "4.7",
     reviews: 95,
-    details: "60 Capsules",
+    details: "64 Count",
     image: "/supplements/n-motion-organ-shield.jpg",
   },
   {
@@ -230,7 +230,7 @@ export const products: Product[] = [
     price: 49.99,
     rating: "4.8",
     reviews: 125,
-    details: "60 Capsules",
+    details: "120 Capsules",
     image: "/supplements/Balance-Plus-RS.jpg",
   },
   {
@@ -241,7 +241,7 @@ export const products: Product[] = [
     price: 49.99,
     rating: "4.9",
     reviews: 185,
-    details: "30 Servings",
+    details: "",
     image: "/protein/ISO-MATRIX.webp",
   },
   {
@@ -252,7 +252,7 @@ export const products: Product[] = [
     price: 69.99,
     rating: "4.8",
     reviews: 210,
-    details: "15 Servings",
+    details: "21 Servings",
     image: "/protein/Lean-Mass-OPZ.jpg",
   },
   {

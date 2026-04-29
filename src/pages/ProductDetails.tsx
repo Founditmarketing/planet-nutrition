@@ -30,11 +30,11 @@ export default function ProductDetails() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-24">
           {/* Image */}
-          <div className="bg-gray-50 dark:bg-[#111] p-8 md:p-16 flex items-center justify-center border border-gray-200 dark:border-white/10 relative">
+          <div className="bg-gray-50 dark:bg-[#111] p-0 aspect-square flex items-center justify-center border border-gray-200 dark:border-white/10 relative overflow-hidden">
             <img 
               src={product.image} 
               alt={product.name}
-              className="w-full max-w-md object-contain hover:scale-105 transition-transform duration-500"
+              className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
             />
           </div>
 
@@ -52,9 +52,8 @@ export default function ProductDetails() {
             
             <div className="flex items-center space-x-4 mb-6">
               <div className="flex text-yellow-500 text-sm">
-                {'★'.repeat(Math.floor(Number(product.rating)))}
+                ★★★★★
               </div>
-              <span className="text-sm text-gray-500 font-medium">{product.rating} ({product.reviews} reviews)</span>
             </div>
 
             <p className="text-3xl font-mono font-bold mb-8">

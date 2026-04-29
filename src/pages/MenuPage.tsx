@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { menuItems, menuCategories } from '../data/menu';
-import { Leaf, Info, Search, CupSoda } from 'lucide-react';
+import { Leaf, Info, Search, CupSoda, Zap } from 'lucide-react';
 
 export default function MenuPage() {
   const [activeCategory, setActiveCategory] = useState<string | 'All'>('All');
@@ -25,7 +25,7 @@ export default function MenuPage() {
             animate={{ opacity: 1, y: 0 }}
             className="font-display text-5xl md:text-7xl uppercase italic font-black tracking-tighter mb-4"
           >
-            The <span className="text-brand-sky">Drink Menu</span>
+            The <span className="text-brand-sky">Menu</span>
           </motion.h1>
           <motion.p 
             initial={{ opacity: 0, y: 20 }}
@@ -116,7 +116,11 @@ export default function MenuPage() {
                   <div>
                     <div className="flex justify-between items-end mb-1">
                       <h4 className="text-black dark:text-white font-display text-lg md:text-xl uppercase italic font-black group-hover:text-brand-sky transition-colors flex items-center gap-2">
-                        <CupSoda className="w-5 h-5 text-gray-300 dark:text-gray-700" strokeWidth={1.5} />
+                        {item.category === 'Enhancers' ? (
+                          <Zap className="w-5 h-5 text-gray-300 dark:text-gray-700 opacity-60" strokeWidth={1.5} />
+                        ) : (
+                          <CupSoda className="w-5 h-5 text-gray-300 dark:text-gray-700 opacity-60" strokeWidth={1.5} />
+                        )}
                         {item.name}
                       </h4>
                       {item.price && (
