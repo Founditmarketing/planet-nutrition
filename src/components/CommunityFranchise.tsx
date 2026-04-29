@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { motion } from 'motion/react';
 import { ArrowRight, ArrowUpRight } from 'lucide-react';
 
@@ -39,10 +40,10 @@ export default function CommunityFranchise() {
           </div>
 
           <div className="flex flex-col sm:flex-row gap-6 w-full md:w-auto">
-            <button className="bg-brand-deep text-white font-sans text-[10px] uppercase font-bold tracking-[0.2em] py-5 px-10 flex items-center justify-center gap-4 hover:bg-brand-sky transition-colors group">
+            <Link to="/about" className="bg-brand-deep text-white font-sans text-[10px] uppercase font-bold tracking-[0.2em] py-5 px-10 flex items-center justify-center gap-4 hover:bg-brand-sky transition-colors group">
               Learn More
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-            </button>
+            </Link>
           </div>
         </div>
 

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 export default function FinalCTA() {
   return (
@@ -20,13 +21,13 @@ export default function FinalCTA() {
         </h2>
         
         <div className="flex flex-col sm:flex-row gap-6 w-full max-w-lg justify-center mx-auto">
-          <button className="flex-1 bg-white text-black font-sans text-[10px] uppercase font-bold tracking-[0.2em] py-5 px-8 hover:bg-gray-200 transition-colors">
+          <Link to="/shop" className="flex-1 text-center bg-white text-black font-sans text-[10px] uppercase font-bold tracking-[0.2em] py-5 px-8 hover:bg-gray-200 transition-colors">
             Shop Online
-          </button>
+          </Link>
           
-          <button className="flex-1 bg-transparent border-2 border-white text-white font-sans text-[10px] uppercase font-bold tracking-[0.2em] py-5 px-8 hover:bg-white hover:text-black transition-colors">
+          <Link to="/locations" className="flex-1 text-center bg-transparent border-2 border-white text-white font-sans text-[10px] uppercase font-bold tracking-[0.2em] py-5 px-8 hover:bg-white hover:text-black transition-colors">
             Find A Store
-          </button>
+          </Link>
         </div>
       </div>
     </section>

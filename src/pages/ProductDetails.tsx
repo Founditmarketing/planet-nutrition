@@ -23,7 +23,7 @@ export default function ProductDetails() {
   return (
     <div className="min-h-screen pt-[120px] pb-24 bg-white dark:bg-[#0a0a0a]">
       <div className="max-w-7xl mx-auto px-6 md:px-12">
-        <Link to="/" className="inline-flex items-center text-sm font-bold uppercase tracking-widest text-gray-500 hover:text-brand-sky mb-8 transition-colors">
+        <Link to="/shop" className="inline-flex items-center text-sm font-bold uppercase tracking-widest text-gray-500 hover:text-brand-sky mb-8 transition-colors">
           <ArrowLeft className="w-4 h-4 mr-2" />
           Back to Shop
         </Link>

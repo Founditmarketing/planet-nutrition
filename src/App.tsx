@@ -16,6 +16,8 @@ import StoreLocator from './pages/StoreLocator';
 import MenuPage from './pages/MenuPage';
 import ShopPage from './pages/ShopPage';
 import AboutPage from './pages/AboutPage';
+import EmploymentPage from './pages/EmploymentPage';
+import ContactPage from './pages/ContactPage';
 
 export default function App() {
   return (
@@ -35,6 +37,8 @@ export default function App() {
             <Route path="/menu" element={<MenuPage />} />
             <Route path="/shop" element={<ShopPage />} />
             <Route path="/about" element={<AboutPage />} />
+            <Route path="/employment" element={<EmploymentPage />} />
+            <Route path="/contact" element={<ContactPage />} />
           </Routes>
         </div>
         <Footer />

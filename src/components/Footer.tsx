@@ -37,22 +37,15 @@ export default function Footer() {
               </div>
              
              <p className="text-black dark:text-white font-sans text-[11px] tracking-[0.2em] font-bold uppercase mb-4">
-               Stay Sharp.
+               Elite Supplements & Nutrition
              </p>
-             <p className="text-gray-500 dark:text-gray-400 font-sans text-[11px] font-bold uppercase tracking-widest mb-8 max-w-sm">
-               Get updates on new formulas, exclusive drop access, and training intel. No spam.
+             <p className="text-gray-500 dark:text-gray-400 font-sans text-[11px] font-bold uppercase tracking-widest mb-8 max-w-sm leading-relaxed">
+               Your trusted source for premium supplements, healthy smoothies, and expert advice to help you crush your fitness goals.
              </p>
              
-             <form className="flex border border-gray-300 dark:border-white/20 focus-within:border-brand-sky transition-colors" onSubmit={e => e.preventDefault()}>
-               <input 
-                 type="email" 
-                 placeholder="ENTER EMAIL" 
-                 className="flex-1 bg-transparent py-3 px-4 outline-none text-black dark:text-white font-sans text-[10px] font-bold tracking-[0.2em] uppercase placeholder:text-gray-400 dark:placeholder:text-gray-600"
-               />
-               <button type="submit" className="px-6 border-l border-gray-300 dark:border-white/20 bg-black dark:bg-white text-white dark:text-black hover:bg-gray-800 dark:hover:bg-gray-200 transition-colors flex items-center justify-center">
-                 <ArrowRight className="w-4 h-4" />
-               </button>
-             </form>
+             <a href="/locations" className="inline-block border border-black dark:border-white text-black dark:text-white hover:bg-black dark:hover:bg-white hover:text-white dark:hover:text-black px-8 py-3 text-[10px] font-bold uppercase tracking-widest transition-colors">
+               Find A Store
+             </a>
           </div>
 
           {/* Links Grid */}

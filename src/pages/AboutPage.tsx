@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'motion/react';
 import { CheckCircle } from 'lucide-react';
+import ImageGallery from '../components/ImageGallery';
 
 export default function AboutPage() {
   return (
@@ -72,6 +73,9 @@ export default function AboutPage() {
         </section>
 
       </div>
+
+      {/* Full-width Image Gallery */}
+      <ImageGallery />
     </div>
   );
 }

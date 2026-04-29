@@ -102,8 +102,8 @@ export default function BestSellers() {
           </div>
         </div>
 
-        {/* Product Carousel (Full Width) */}
-        <div className="w-screen relative left-1/2 -translate-x-1/2 mt-8 min-h-[400px]">
+        {/* Product Carousel (Full Width Mobile, Bleed Right Desktop) */}
+        <div className="w-screen md:w-full relative left-1/2 md:left-0 -translate-x-1/2 md:translate-x-0 mt-8 min-h-[400px]">
           <AnimatePresence mode="wait">
             <motion.div
               key={activeTab}
@@ -116,7 +116,7 @@ export default function BestSellers() {
               <div 
                 ref={scrollRef}
                 onScroll={handleScroll}
-                className="flex overflow-x-auto snap-x snap-mandatory gap-4 md:gap-6 pb-8 px-[calc(50vw-110px)] md:px-12 xl:px-[max(48px,calc((100vw-1280px)/2))] hide-scrollbar scroll-smooth"
+                className="flex overflow-x-auto snap-x snap-mandatory gap-4 md:gap-6 pb-8 hide-scrollbar scroll-smooth px-[calc(50vw-110px)] md:px-0 md:pl-6 md:-mr-[50vw] md:pr-[50vw]"
                 style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
               >
                 {filteredProducts.map((product) => (
@@ -180,10 +180,10 @@ export default function BestSellers() {
           </AnimatePresence>
 
           {/* Scroll Progress Bar */}
-          <div className="w-full max-w-4xl mx-auto h-[2px] bg-gray-200 dark:bg-white/10 mt-4 relative rounded-full overflow-hidden">
+          <div className="w-full max-w-4xl mx-auto h-[2px] bg-gray-200 dark:bg-white/10 mt-4 relative overflow-hidden">
             <div 
-              className="absolute top-0 left-0 h-full bg-black dark:bg-brand-sky transition-all duration-150 ease-out"
-              style={{ width: `${Math.max(scrollProgress, 15)}%` }}
+              className="absolute top-0 h-full w-[20%] bg-black dark:bg-brand-sky transition-all duration-150 ease-out"
+              style={{ left: `${scrollProgress * 0.8}%` }}
             />
           </div>
         </div>

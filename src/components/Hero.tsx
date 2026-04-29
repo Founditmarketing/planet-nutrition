@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'motion/react';
-import { ArrowRight, ChevronLeft, ChevronRight, CheckCircle } from 'lucide-react';
+import { ChevronLeft, ChevronRight, ArrowRight, CheckCircle } from 'lucide-react';
 import { useLoad } from '../context/LoadContext';
 
 const slides = [
@@ -137,10 +138,10 @@ export default function Hero() {
             </div>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-start">
-              <button className="flex items-center justify-center gap-3 bg-brand-deep text-white rounded-none font-sans font-bold uppercase tracking-[0.2em] text-[10px] md:text-[11px] px-8 py-3 md:px-10 md:py-4 hover:bg-brand-sky hover:text-black transition-all duration-300 shadow-xl">
+              <Link to="/shop" className="flex items-center justify-center gap-3 bg-brand-deep text-white rounded-none font-sans font-bold uppercase tracking-[0.2em] text-[10px] md:text-[11px] px-8 py-3 md:px-10 md:py-4 hover:bg-brand-sky hover:text-black transition-all duration-300 shadow-xl">
                 Shop {slides[currentSlide].category}
                 <ArrowRight className="w-4 h-4" />
-              </button>
+              </Link>
             </div>
           </div>
 
@@ -158,7 +159,7 @@ export default function Hero() {
       </AnimatePresence>
 
       {/* Navigation Controls */}
-      <div className="absolute bottom-6 md:bottom-8 left-1/2 -translate-x-1/2 flex justify-center items-center gap-3 md:gap-4 z-30 w-full px-6 max-w-[200px] md:max-w-xs">
+      <div className="absolute bottom-6 md:bottom-8 left-1/2 -translate-x-1/2 flex justify-center items-center gap-3 md:gap-4 z-30 w-full px-6 max-w-[300px] md:max-w-lg">
         {slides.map((_, idx) => (
           <button 
             key={idx}
@@ -166,9 +167,9 @@ export default function Hero() {
               const newDirection = idx > currentSlide ? 1 : -1;
               if(idx !== currentSlide) setPage([idx, newDirection]);
             }}
-            className={`h-1.5 md:h-2 transition-all duration-500 rounded-full flex-1 ${
+            className={`h-1.5 md:h-2 transition-all duration-500 rounded-none flex-1 ${
               currentSlide === idx 
-                ? 'bg-brand-sky opacity-100 shadow-[0_0_10px_rgba(0,174,239,0.5)]' 
+                ? 'bg-brand-sky opacity-100' 
                 : 'bg-white/50 hover:bg-white/80 opacity-60 hover:opacity-100'
             }`}
           />
