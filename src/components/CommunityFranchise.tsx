@@ -47,34 +47,34 @@ export default function CommunityFranchise() {
         </div>
 
         {/* Masonry/Collage Side (Right) */}
-        <div className="w-full lg:w-7/12 grid grid-cols-2 gap-4 relative h-[500px] md:h-[600px] items-center">
+        <div className="w-full lg:w-7/12 grid grid-cols-1 sm:grid-cols-2 gap-4 relative h-auto sm:h-[500px] md:h-[600px] items-center mt-12 lg:mt-0">
           {/* Collage Item 1: Tall left */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="w-full h-[80%] relative overflow-hidden group col-span-1"
+            className="w-full h-[300px] sm:h-[80%] relative overflow-hidden group col-span-1"
           >
             <div className="absolute inset-0 bg-brand-sky mix-blend-multiply z-10 opacity-0 group-hover:opacity-40 transition-opacity duration-500" />
             <img
-              src="/wheyherosection.jpeg"
+              src="/PNpic2.jpg"
               alt="Planet Nutrition Products"
               className="w-full h-full object-cover"
             />
           </motion.div>
 
-          <div className="col-span-1 flex flex-col justify-center gap-4 h-full">
+          <div className="col-span-1 flex flex-col sm:justify-center gap-4 h-auto sm:h-full">
             {/* Collage Item 2: Top Right */}
             <motion.div
               initial={{ opacity: 0, x: 20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.2 }}
-              className="w-full h-[50%] relative overflow-hidden group"
+              className="w-full h-[250px] sm:h-[50%] relative overflow-hidden group"
             >
               <div className="absolute inset-0 bg-brand-deep mix-blend-multiply z-10 opacity-0 group-hover:opacity-60 transition-opacity duration-500" />
               <img
-                src="/purepowerherosection.jpeg"
+                src="/PNpic3.jpg"
                 alt="Pre Workout Products"
                 className="w-full h-full object-cover"
               />
@@ -86,7 +86,7 @@ export default function CommunityFranchise() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.4 }}
-              className="w-full h-[40%] bg-gray-50 dark:bg-black border border-gray-200 dark:border-white/10 p-6 md:p-8 flex items-end justify-start relative group transition-colors duration-300"
+              className="w-full h-[150px] sm:h-[40%] bg-gray-50 dark:bg-black border border-gray-200 dark:border-white/10 p-6 md:p-8 flex items-end justify-start relative group transition-colors duration-300"
             >
               {/* Corner accents, dark in white box */}
               <div className="absolute top-0 right-0 w-8 h-8 border-t-[4px] border-r-[4px] border-brand-deep m-4 opacity-50 group-hover:opacity-100 transition-opacity" />
