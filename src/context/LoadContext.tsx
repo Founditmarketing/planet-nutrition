@@ -27,23 +27,20 @@ export const LoadProvider: React.FC<{ children: React.ReactNode }> = ({ children
             initial={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 1, ease: "easeInOut" }}
-            className="fixed inset-0 z-[100] bg-white flex items-center justify-center"
-          >
-            <video 
-              ref={(el) => {
-                if (el) {
-                  el.defaultMuted = true;
-                  el.muted = true;
-                  el.play().catch((e) => console.log("Autoplay prevented", e));
-                }
-              }}
-              src="/newPNloadscreenvideo.mp4" 
-              autoPlay 
-              muted 
-              playsInline 
-              className="w-full max-w-md h-auto pointer-events-none"
-            />
-          </motion.div>
+            className="fixed inset-0 z-[100] bg-white flex items-center justify-center pointer-events-none"
+            dangerouslySetInnerHTML={{
+              __html: `
+                <video 
+                  src="/newPNloadscreenvideo.mp4" 
+                  autoplay 
+                  loop
+                  muted 
+                  playsinline 
+                  style="width: 100%; max-width: 28rem; height: auto;"
+                ></video>
+              `
+            }}
+          />
         )}
       </AnimatePresence>
       {children}
