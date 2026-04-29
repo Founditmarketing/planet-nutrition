@@ -254,5 +254,27 @@ export const products: Product[] = [
     reviews: 210,
     details: "15 Servings",
     image: "/protein/Lean-Mass-OPZ.jpg",
+  },
+  {
+    id: "pro-magna-hci-v2",
+    name: "PRO MAGNA HCI V2",
+    category: "Creatine",
+    desc: "Increased Absorption Creatine",
+    price: 49.99,
+    rating: "4.9",
+    reviews: 140,
+    details: "60 Capsules",
+    image: "/creatine/Pro-Magna-HCI-V2.jpg",
+  },
+  {
+    id: "pure-creatine",
+    name: "PURE CREATINE",
+    category: "Creatine",
+    desc: "100% Pure Creatine",
+    price: 49.99,
+    rating: "4.8",
+    reviews: 195,
+    details: "100 Servings",
+    image: "/creatine/Pure-Creatine-OPZ.jpg",
   }
 ];
