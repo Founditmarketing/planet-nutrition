@@ -30,11 +30,18 @@ export const LoadProvider: React.FC<{ children: React.ReactNode }> = ({ children
             className="fixed inset-0 z-[100] bg-white flex items-center justify-center"
           >
             <video 
+              ref={(el) => {
+                if (el) {
+                  el.defaultMuted = true;
+                  el.muted = true;
+                  el.play().catch((e) => console.log("Autoplay prevented", e));
+                }
+              }}
               src="/newPNloadscreenvideo.mp4" 
               autoPlay 
               muted 
               playsInline 
-              className="w-full max-w-md h-auto"
+              className="w-full max-w-md h-auto pointer-events-none"
             />
           </motion.div>
         )}
