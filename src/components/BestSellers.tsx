@@ -116,7 +116,7 @@ export default function BestSellers() {
               <div 
                 ref={scrollRef}
                 onScroll={handleScroll}
-                className="flex overflow-x-auto snap-x snap-mandatory gap-4 md:gap-6 pb-8 px-[calc(50vw-110px)] md:px-12 xl:px-[calc((100vw-1280px)/2)] hide-scrollbar scroll-smooth"
+                className="flex overflow-x-auto snap-x snap-mandatory gap-4 md:gap-6 pb-8 px-[calc(50vw-110px)] md:px-12 xl:px-[max(48px,calc((100vw-1280px)/2))] hide-scrollbar scroll-smooth"
                 style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
               >
                 {filteredProducts.map((product) => (
