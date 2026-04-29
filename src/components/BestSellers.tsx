@@ -13,9 +13,9 @@ export default function BestSellers() {
   const scrollRef = useRef<HTMLDivElement>(null);
   const { addToCart } = useCart();
 
-  const filteredProducts = activeTab === "Supplements" 
+  const filteredProducts = (activeTab === "Supplements" 
     ? products.filter(p => !['Protein', 'Creatine'].includes(p.category))
-    : products.filter(p => p.category === activeTab);
+    : products.filter(p => p.category === activeTab)).slice(0, 7);
 
   const scroll = (direction: 'left' | 'right') => {
     if (scrollRef.current) {
@@ -105,19 +105,18 @@ export default function BestSellers() {
           <div 
             ref={scrollRef}
             onScroll={handleScroll}
-            className="flex overflow-x-auto snap-x snap-mandatory gap-4 md:gap-6 pb-8 px-6 md:px-12 hide-scrollbar scroll-smooth"
+            className="flex overflow-x-auto snap-x snap-mandatory gap-4 md:gap-6 pb-8 px-[calc(50vw-110px)] md:px-12 xl:px-[calc((100vw-1280px)/2)] hide-scrollbar scroll-smooth"
             style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
           >
-            <AnimatePresence mode="popLayout">
+            <AnimatePresence mode="wait">
               {filteredProducts.map((product) => (
                 <motion.div
                   key={product.id}
-                  layout
-                  initial={{ opacity: 0, scale: 0.95 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0, scale: 0.95 }}
-                  transition={{ duration: 0.4 }}
-                  className="min-w-[220px] w-[220px] md:min-w-[260px] md:w-[260px] flex-shrink-0 snap-start group relative flex flex-col"
+                  initial={{ opacity: 0, x: 20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  exit={{ opacity: 0, x: -20 }}
+                  transition={{ duration: 0.3 }}
+                  className="min-w-[220px] w-[220px] md:min-w-[260px] md:w-[260px] flex-shrink-0 snap-center md:snap-start group relative flex flex-col"
                 >
                   {/* Image Container */}
                   <Link to={`/product/${product.id}`} className="block h-[260px] bg-[#f5f5f5] dark:bg-zinc-900 relative overflow-hidden flex items-center justify-center transition-colors duration-300">
