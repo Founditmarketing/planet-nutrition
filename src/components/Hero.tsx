@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { ArrowRight, ChevronLeft, ChevronRight, CheckCircle } from 'lucide-react';
+import { useLoad } from '../context/LoadContext';
 
 const slides = [
   {
@@ -58,6 +59,7 @@ const variants = {
 
 export default function Hero() {
   const [[page, direction], setPage] = useState([0, 0]);
+  const { isLoaded } = useLoad();
 
   const currentSlide = ((page % slides.length) + slides.length) % slides.length;
 
@@ -111,7 +113,10 @@ export default function Hero() {
           )}
 
           {/* Text Content */}
-          <div className={`w-full ${slides[currentSlide].image ? 'md:w-1/2' : 'md:w-1/2 md:mr-auto'} flex flex-col relative z-20 text-left mt-4 md:mt-0 p-4 md:p-8`}>
+          <div 
+            className={`w-full ${slides[currentSlide].image ? 'md:w-1/2' : 'md:w-1/2 md:mr-auto'} flex flex-col relative z-20 text-left mt-4 md:mt-0 p-4 md:p-8 transition-all duration-1000 ease-out ${isLoaded ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-8'}`}
+            style={{ transitionDelay: isLoaded ? '400ms' : '0ms' }}
+          >
             <h2 className="text-[10px] md:text-[11px] font-bold tracking-[0.3em] text-brand-sky mb-2 md:mb-4 uppercase">
               {slides[currentSlide].category} Series
             </h2>

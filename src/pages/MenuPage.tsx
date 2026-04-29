@@ -25,7 +25,7 @@ export default function MenuPage() {
             animate={{ opacity: 1, y: 0 }}
             className="font-display text-5xl md:text-7xl uppercase italic font-black tracking-tighter mb-4"
           >
-            The <span className="text-brand-sky">Menu</span>
+            The <span className="text-brand-sky">Drink Menu</span>
           </motion.h1>
           <motion.p 
             initial={{ opacity: 0, y: 20 }}
@@ -33,7 +33,7 @@ export default function MenuPage() {
             transition={{ delay: 0.1 }}
             className="font-sans text-gray-600 dark:text-gray-400 max-w-2xl mx-auto text-sm md:text-base leading-relaxed"
           >
-            Explore our extensive lineup of premium meal replacements, functional teas, and custom enhancers tailored specifically to meet your nutritional goals.
+            Explore our extensive lineup of premium meal replacements, functional teas, and custom enhancers. Everything on this menu is crafted fresh and available exclusively in-store at our physical locations.
           </motion.p>
         </div>
       </div>

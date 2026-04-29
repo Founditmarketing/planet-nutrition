@@ -41,11 +41,11 @@ export default function MenuSection() {
             Discover Your Flavor
           </h2>
           <h3 className="text-black dark:text-white font-display text-4xl md:text-5xl lg:text-6xl uppercase italic font-black tracking-tighter mb-6">
-            The Menu
+            The Drink Menu
           </h3>
           <p className="text-gray-600 dark:text-gray-400 font-sans text-sm md:text-base leading-relaxed">
             From high-quality protein meal replacements to our energy-boosting teas and fun menu creations, 
-            explore the perfect fuel for your lifestyle.
+            explore the perfect fuel for your lifestyle. Everything on this menu is crafted fresh and available exclusively in-store at our physical locations.
           </p>
         </div>
 

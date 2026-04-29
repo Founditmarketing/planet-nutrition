@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import FAB from './components/FAB';
 import ScrollToTop from './components/ScrollToTop';
 import { CartProvider } from './context/CartContext';
+import { LoadProvider } from './context/LoadContext';
 
 import Home from './pages/Home';
 import ProductDetails from './pages/ProductDetails';
@@ -18,9 +19,10 @@ import AboutPage from './pages/AboutPage';
 
 export default function App() {
   return (
-    <CartProvider>
-      <ScrollToTop />
-      <div className="min-h-screen flex flex-col bg-white text-black dark:bg-black dark:text-white font-sans selection:bg-brand-sky selection:text-black">
+    <LoadProvider>
+      <CartProvider>
+        <ScrollToTop />
+        <div className="min-h-screen flex flex-col bg-white text-black dark:bg-black dark:text-white font-sans selection:bg-brand-sky selection:text-black">
         <Header />
         <div className="flex-grow">
           <Routes>
@@ -39,5 +41,6 @@ export default function App() {
         <FAB />
       </div>
     </CartProvider>
+    </LoadProvider>
   );
 }

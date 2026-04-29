@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { Search, ShoppingCart, User, Menu, X, Facebook, Instagram, Twitter } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import { useCart } from '../context/CartContext';
+import { useLoad } from '../context/LoadContext';
 
 const announcements = [
   "FREE SHIPPING ON ORDERS OVER $75",
@@ -26,6 +27,7 @@ export default function Header() {
   const [announcementIndex, setAnnouncementIndex] = useState(0);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { itemCount } = useCart();
+  const { isLoaded } = useLoad();
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -105,7 +107,7 @@ export default function Header() {
 
           {/* Desktop Nav - Limit to 5 so it doesn't crowd */}
           <nav className="hidden lg:flex absolute left-1/2 -translate-x-1/2 items-center gap-10 text-sm uppercase tracking-widest font-display font-black italic text-gray-600 dark:text-gray-300 whitespace-nowrap">
-            {navLinks.slice(0, 5).map((link) => {
+            {navLinks.slice(0, 5).map((link, index) => {
               const isExternal = link.href.startsWith('http');
               const LinkComponent = isExternal ? 'a' : Link;
               const linkProps = isExternal 
@@ -116,7 +118,8 @@ export default function Header() {
                 <LinkComponent 
                   key={link.name} 
                   {...(linkProps as any)}
-                  className="group relative py-2 hover:text-black dark:hover:text-white transition-colors duration-300"
+                  className={`group relative py-2 hover:text-black dark:hover:text-white transition-all duration-700 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-4'}`}
+                  style={{ transitionDelay: `${isLoaded ? index * 100 + 300 : 0}ms` }}
                 >
                   <span className="relative z-10 group-hover:-translate-y-0.5 transition-transform duration-300 inline-block">
                     {link.name}
