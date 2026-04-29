@@ -205,7 +205,7 @@ export default function Header() {
                 onChange={(e) => setSearchQuery(e.target.value)}
                 onFocus={() => setIsSearchFocused(true)}
                 onBlur={() => setIsSearchFocused(false)}
-                className="w-64 xl:w-72 text-xs bg-transparent outline-none text-black dark:text-white placeholder-gray-400 font-sans transition-all"
+                className="w-64 xl:w-72 text-[16px] lg:text-xs bg-transparent outline-none text-black dark:text-white placeholder-gray-400 font-sans transition-all"
               />
               <button className="text-gray-400 hover:text-brand-sky transition-colors">
                 <Search className="w-4 h-4" strokeWidth={2} />
@@ -222,7 +222,7 @@ export default function Header() {
                 onChange={(e) => setSearchQuery(e.target.value)}
                 onFocus={() => setIsSearchFocused(true)}
                 onBlur={() => setIsSearchFocused(false)}
-                className="w-full text-[10px] bg-transparent outline-none text-black dark:text-white placeholder-gray-400 font-sans"
+                className="w-full text-[16px] bg-transparent outline-none text-black dark:text-white placeholder-gray-400 font-sans"
               />
               <button className="text-gray-400 hover:text-brand-sky transition-colors ml-1">
                 <Search className="w-3.5 h-3.5" strokeWidth={2} />
