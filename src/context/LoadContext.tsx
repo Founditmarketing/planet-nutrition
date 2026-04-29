@@ -28,19 +28,13 @@ export const LoadProvider: React.FC<{ children: React.ReactNode }> = ({ children
             exit={{ opacity: 0 }}
             transition={{ duration: 1, ease: "easeInOut" }}
             className="fixed inset-0 z-[100] bg-white flex items-center justify-center pointer-events-none"
-            dangerouslySetInnerHTML={{
-              __html: `
-                <video 
-                  src="/newPNloadscreenvideo.mp4" 
-                  autoplay 
-                  loop
-                  muted 
-                  playsinline 
-                  style="width: 100%; max-width: 28rem; height: auto;"
-                ></video>
-              `
-            }}
-          />
+          >
+            <img 
+              src="/PlanetNutritionloadscreen.gif" 
+              alt="Loading Planet Nutrition..." 
+              className="w-full max-w-md h-auto pointer-events-none"
+            />
+          </motion.div>
         )}
       </AnimatePresence>
       {children}
