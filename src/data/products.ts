@@ -232,5 +232,27 @@ export const products: Product[] = [
     reviews: 125,
     details: "60 Capsules",
     image: "/supplements/Balance-Plus-RS.jpg",
+  },
+  {
+    id: "iso-matrix",
+    name: "ISO MATRIX",
+    category: "Protein",
+    desc: "Hydrolyzed Whey Isolate",
+    price: 49.99,
+    rating: "4.9",
+    reviews: 185,
+    details: "30 Servings",
+    image: "/protein/ISO-MATRIX.webp",
+  },
+  {
+    id: "planet-lean-mass",
+    name: "PLANET LEAN MASS",
+    category: "Protein",
+    desc: "Mass Gainer Formula",
+    price: 69.99,
+    rating: "4.8",
+    reviews: 210,
+    details: "15 Servings",
+    image: "/protein/Lean-Mass-OPZ.jpg",
   }
 ];

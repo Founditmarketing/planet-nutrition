@@ -5,16 +5,16 @@ import { Link } from 'react-router-dom';
 import { useCart } from '../context/CartContext';
 import { products } from '../data/products';
 
-const tabs = ["All", "Proteins", "Pre-Workouts", "Creatine"];
+const tabs = ["Supplements", "Protein", "Creatine"];
 
 export default function BestSellers() {
-  const [activeTab, setActiveTab] = useState("All");
+  const [activeTab, setActiveTab] = useState("Supplements");
   const [scrollProgress, setScrollProgress] = useState(0);
   const scrollRef = useRef<HTMLDivElement>(null);
   const { addToCart } = useCart();
 
-  const filteredProducts = activeTab === "All" 
-    ? products 
+  const filteredProducts = activeTab === "Supplements" 
+    ? products.filter(p => !['Protein', 'Creatine'].includes(p.category))
     : products.filter(p => p.category === activeTab);
 
   const scroll = (direction: 'left' | 'right') => {
