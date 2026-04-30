@@ -9,9 +9,9 @@ export default function FinalCTA() {
       
       {/* Background visual lines */}
       <div className="absolute inset-0 opacity-10 pointer-events-none flex justify-center w-full z-0">
-        <div className="h-full w-px bg-white mx-8" />
-        <div className="h-full w-px bg-white mx-8 hidden md:block" />
-        <div className="h-full w-px bg-white mx-8 hidden lg:block" />
+        <div className="h-full w-px bg-white mx-4 sm:mx-8 lg:mx-12" />
+        <div className="h-full w-px bg-white mx-4 sm:mx-8 lg:mx-12" />
+        <div className="h-full w-px bg-white mx-4 sm:mx-8 lg:mx-12" />
       </div>
 
       <div className="max-w-4xl text-center relative z-10 flex flex-col items-center">

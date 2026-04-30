@@ -3,6 +3,7 @@ import Hero from '../components/Hero';
 import ValueProp from '../components/ValueProp';
 import BestSellers from '../components/BestSellers';
 import MenuSection from '../components/MenuSection';
+import PromoSection from '../components/PromoSection';
 import AboutLocations from '../components/AboutLocations';
 import Reviews from '../components/Reviews';
 import CommunityFranchise from '../components/CommunityFranchise';
@@ -15,6 +16,7 @@ export default function Home() {
       <ValueProp />
       <BestSellers />
       <MenuSection />
+      <PromoSection />
       <AboutLocations />
       <Reviews />
       <CommunityFranchise />
